@@ -128,13 +128,7 @@ export default class Gallery extends Component {
             <div className="mx-auto tm-gallery-container">
               <div className="grid tm-gallery">
                 {this.state.imagesDict.map(item => (
-                  <Figure
-                    key={item.id}
-                    href={item.href}
-                    src={item.src}
-                    alt={item.alt}
-                    figcaption={item.figcaption()}
-                  />
+                  <Figure key={item.id} item={item} />
                 ))}
               </div>
             </div>
