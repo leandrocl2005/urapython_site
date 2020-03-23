@@ -1,12 +1,44 @@
 import React, { Component } from 'react';
+import { NavbarItem } from "./NavbarItem";
 
 export default class Navbar extends Component {
+
+  
+  constructor(props) {
+    super(props)
+    this.state = {
+      navitems: [
+        {
+          id: 1,
+          name: "Home"
+        },
+        {
+          id: 2,
+          name: "Comunidade"
+        },
+        {
+          id: 3,
+          name: "Colaboradores"
+        },
+        {
+          id: 4,
+          name: "Tutoriais"
+        },
+        {
+          id: 5,
+          name: "Contato"
+        },                        
+      ],
+      navtitle: "Urapython"
+    }
+  }
+
   render = () => (
     <nav className="navbar navbar-expand-md tm-navbar" id="tmNav">
       <div className="container">
         <div className="tm-next">
           <a href="#infinite" className="navbar-brand">
-            Infinite Loop
+            {this.state.navtitle}
           </a>
         </div>
 
@@ -23,31 +55,8 @@ export default class Navbar extends Component {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <a className="nav-link tm-nav-link" href="#infinite">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link tm-nav-link" href="#whatwedo">
-                What We Do
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link tm-nav-link" href="#testimonials">
-                Testimonials
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link tm-nav-link" href="#gallery">
-                Gallery
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link tm-nav-link" href="#contact">
-                Contact
-              </a>
-            </li>
+              {this.state.navitems.map(
+                item => <NavbarItem key={item.id} item={item}/>)}
           </ul>
         </div>
       </div>
